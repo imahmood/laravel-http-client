@@ -1,0 +1,7 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "blank_line_after_opening_tag": false,
+        "declare_strict_types": true
+    }
+}

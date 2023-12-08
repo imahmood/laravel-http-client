@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace Imahmood\HttpClient\Tests;
@@ -161,7 +160,7 @@ class ClientTest extends TestCase
         ]);
 
         $request = new Request(HttpMethod::POST, 'https://reqres.in/api/users/100/avatar');
-        $request->addFile('avatar', __DIR__ . '/TestSupport/assets/avatar.jpg');
+        $request->addFile('avatar', __DIR__.'/TestSupport/assets/avatar.jpg');
 
         $this->assertEquals(ContentType::MULTIPART->value, $request->getContentType()->value);
 
