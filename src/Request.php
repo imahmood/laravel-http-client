@@ -77,10 +77,13 @@ class Request implements RequestInterface
     /**
      * {@inheritDoc}
      */
-    public function addFile(string $fieldName, mixed $contents): static
+    public function addFile(string $fieldName, string $path): static
     {
         $this->contentType = ContentType::MULTIPART;
-        $this->files[] = [$fieldName, $contents];
+        $this->files[] = [
+            'fieldName' => $fieldName,
+            'path' => $path,
+        ];
 
         return $this;
     }
@@ -90,7 +93,16 @@ class Request implements RequestInterface
      */
     public function getFiles(): array
     {
-        return $this->files;
+        $data = [];
+
+        foreach ($this->files as $file) {
+            $data[] = [
+                $file['fieldName'],
+                file_get_contents($file['path']),
+            ];
+        }
+
+        return $data;
     }
 
     /**

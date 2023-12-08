@@ -29,7 +29,7 @@ interface RequestInterface
      *
      * @return $this
      */
-    public function addFile(string $fieldName, mixed $contents): static;
+    public function addFile(string $fieldName, string $path): static;
 
     /**
      * Get an array of files attached to the request.
