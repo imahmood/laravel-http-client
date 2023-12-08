@@ -12,6 +12,8 @@ interface ResponseInterface
 
     /**
      * Get the response body as an array.
+     *
+     * @throws \JsonException
      */
     public function toArray(): array;
 

@@ -34,7 +34,7 @@ class Response implements ResponseInterface
     public function toArray(): array
     {
         if (! isset($this->decodedBody)) {
-            $this->decodedBody = (array) json_decode($this->body, true);
+            $this->decodedBody = (array) json_decode($this->body, true, 512, \JSON_BIGINT_AS_STRING | \JSON_THROW_ON_ERROR);
         }
 
         return $this->decodedBody;
