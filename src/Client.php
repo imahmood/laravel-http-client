@@ -8,7 +8,6 @@ use Illuminate\Http\Client\PendingRequest as LaravelPendingRequest;
 use Illuminate\Http\Client\Response as LaravelHttpResponse;
 use Illuminate\Support\Facades\Http as LaravelHttp;
 use Imahmood\HttpClient\Enums\ContentType;
-use Imahmood\HttpClient\Enums\HttpMethod;
 
 class Client implements ClientInterface
 {
@@ -42,10 +41,7 @@ class Client implements ClientInterface
 
         $startTime = microtime(true);
 
-        $response = match ($request->getMethod()) {
-            HttpMethod::POST => $client->post($request->getUrl(), $request->getBody()),
-            HttpMethod::GET => $client->get($request->getUrl(), $request->getBody()),
-        };
+        $response = $client->{$request->getMethod()->value}($request->getUrl(), $request->getBody());
 
         $duration = microtime(true) - $startTime;
 

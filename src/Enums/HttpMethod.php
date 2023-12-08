@@ -6,6 +6,9 @@ namespace Imahmood\HttpClient\Enums;
 
 enum HttpMethod: string
 {
-    case GET = 'GET';
-    case POST = 'POST';
+    case GET = 'get';
+    case POST = 'post';
+    case PUT = 'put';
+    case PATCH = 'patch';
+    case DELETE = 'delete';
 }
