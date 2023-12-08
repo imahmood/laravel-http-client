@@ -15,6 +15,9 @@ composer require imahmood/laravel-http-client
 To send a GET request, use the following code:
 
 ``` php
+use Imahmood\HttpClient\Request;
+use Imahmood\HttpClient\ClientFactory;
+
 $request = new Request(HttpMethod::GET, 'https://example.com/api/users');
 $response = ClientFactory::create()->send($request);
 ```
