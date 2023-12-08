@@ -2,20 +2,29 @@
     "name": "imahmood/laravel-http-client",
     "description": "Laravel HTTP Client Wrapper",
     "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "http-client",
+        "laravel-http-client"
+    ],
     "authors": [
         {
             "name": "Mahmood Dehghani",
-            "email": "mahmood.public@gmail.com"
+            "email": "mahmood.public@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.8",
         "illuminate/http": "^9.0|^10.0",
         "illuminate/support": "^9.0|^10.0",
         "illuminate/validation": "^9.0|^10.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
+        "orchestra/testbench": "^8.15",
         "phpstan/phpstan": "^1.10"
     },
     "autoload": {
@@ -23,7 +32,13 @@
             "Imahmood\\HttpClient\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Imahmood\\HttpClient\\Tests\\": "tests/"
+        }
+    },
     "scripts": {
+        "test": "./vendor/bin/phpunit",
         "cs-check": "./vendor/bin/pint --test",
         "cs-fix": "./vendor/bin/pint",
         "stan": "./vendor/bin/phpstan analyse"

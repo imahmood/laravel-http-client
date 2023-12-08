@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -48,3 +48,6 @@ jobs:
 
       - name: Running PHPStan
         run: vendor/bin/phpstan analyse --error-format=github
+
+      - name: Running PHPUnit
+        run: vendor/bin/phpunit
