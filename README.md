@@ -15,7 +15,7 @@ composer require imahmood/laravel-http-client
 To send a GET request, use the following code:
 
 ``` php
-$request = new Request(HttpMethod::GET, '/api/users/me');
+$request = new Request(HttpMethod::GET, 'https://example.com/api/users');
 $response = ClientFactory::create()->send($request);
 ```
 
@@ -28,7 +28,7 @@ $body = [
     'password' => '__PASSWORD__',
 ];
 
-$request = new Request(HttpMethod::POST, '/api/auth/login', $body);
+$request = new Request(HttpMethod::POST, 'https://example.com/api/auth/login', $body);
 $response = ClientFactory::create()->send($request);
 ```
 
@@ -36,14 +36,10 @@ $response = ClientFactory::create()->send($request);
 To upload files, attach them to the request using the `addFile` method:
 
 ```php
-$file = fopen('/home/avatar.png', 'r');
-
-$request = new Request(HttpMethod::POST, '/api/users/avatar', $body);
-$request->addFile('avatar', $file);
+$request = new Request(HttpMethod::POST, 'https://example.com/api/users/1/avatar', $body);
+$request->addFile('avatar', '/home/user/avatar.png');
 
 $response = ClientFactory::create()->send($request);
-
-fclose($file);
 ```
 
 ### Sending a Request with a Bearer Token
@@ -52,7 +48,7 @@ If you need to send a request with a Bearer Token for authentication, you can do
 ```php
 $accessToken = '__TOKEN__';
 
-$request = new Request(HttpMethod::GET, '/api/users/me', $body);
+$request = new Request(HttpMethod::GET, 'https://example.com/api/users', $body);
 $response = ClientFactory::createWithBearerToken($accessToken)->send($request);
 ```
 
@@ -84,4 +80,4 @@ try {
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
