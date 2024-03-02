@@ -1,4 +1,10 @@
 # Laravel HTTP Client Wrapper
+
+[![Latest Stable Version](https://img.shields.io/packagist/v/imahmood/laravel-http-client.svg?style=flat-square)](https://packagist.org/packages/imahmood/laravel-http-client)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/imahmood/laravel-http-client/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/imahmood/laravel-http-client/actions?query=workflow%3Atests+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/imahmood/laravel-http-client.svg?style=flat-square)](https://packagist.org/packages/imahmood/laravel-http-client)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+
 This is a simple wrapper around Laravel's HTTP Client that simplifies making HTTP requests and handling responses.
 It provides an easy-to-use interface for common HTTP operations.
 
