@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Imahmood\HttpClient;
 
-use GuzzleHttp\Cookie\CookieJarInterface;
+use GuzzleHttp\Cookie\CookieJar;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Imahmood\HttpClient\Exceptions\ClientException;
@@ -17,7 +17,7 @@ class Response implements ResponseInterface
         private readonly string $url,
         private readonly string $body,
         private readonly array $headers,
-        private readonly CookieJarInterface $cookies,
+        private readonly CookieJar $cookies,
         private readonly int $statusCode,
         private readonly float $duration,
     ) {}
@@ -53,7 +53,7 @@ class Response implements ResponseInterface
     /**
      * {@inheritDoc}
      */
-    public function cookies(): CookieJarInterface
+    public function cookies(): CookieJar
     {
         return $this->cookies;
     }

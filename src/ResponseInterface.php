@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Imahmood\HttpClient;
 
-use GuzzleHttp\Cookie\CookieJarInterface;
+use GuzzleHttp\Cookie\CookieJar;
 
 interface ResponseInterface
 {
@@ -27,7 +27,7 @@ interface ResponseInterface
     /**
      * Get the cookies from the response.
      */
-    public function cookies(): CookieJarInterface;
+    public function cookies(): CookieJar;
 
     /**
      * Check if the response content is JSON.
