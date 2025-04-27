@@ -14,7 +14,7 @@ use Imahmood\HttpClient\Request;
 
 class ClientTest extends TestCase
 {
-    public function testGetRequest(): void
+    public function test_get_request(): void
     {
         Http::fake([
             'https://reqres.in/*' => Http::response('ok', 200),
@@ -28,7 +28,7 @@ class ClientTest extends TestCase
         $this->assertEquals('ok', $response->body());
     }
 
-    public function testPostRequest(): void
+    public function test_post_request(): void
     {
         $body = [
             'id' => 100,
@@ -47,7 +47,7 @@ class ClientTest extends TestCase
         $this->assertEquals($body, $response->toArray());
     }
 
-    public function testPutRequest(): void
+    public function test_put_request(): void
     {
         $body = [
             'name' => 'user name',
@@ -65,7 +65,7 @@ class ClientTest extends TestCase
         $this->assertEquals($body, $response->toArray());
     }
 
-    public function testPatchRequest(): void
+    public function test_patch_request(): void
     {
         $body = [
             'name' => 'user name',
@@ -83,7 +83,7 @@ class ClientTest extends TestCase
         $this->assertEquals($body, $response->toArray());
     }
 
-    public function testDeleteRequest(): void
+    public function test_delete_request(): void
     {
         Http::fake([
             'https://reqres.in/*' => Http::response(null, 204),
@@ -96,7 +96,7 @@ class ClientTest extends TestCase
         $this->assertEquals(204, $response->statusCode());
     }
 
-    public function testClientErrorResponses(): void
+    public function test_client_error_responses(): void
     {
         Http::fake([
             'https://reqres.in/*' => Http::response([], 401),
@@ -115,7 +115,7 @@ class ClientTest extends TestCase
         $response->validate();
     }
 
-    public function testServerErrorResponses(): void
+    public function test_server_error_responses(): void
     {
         Http::fake([
             'https://reqres.in/*' => Http::response([], 500),
@@ -134,7 +134,7 @@ class ClientTest extends TestCase
         $response->validate();
     }
 
-    public function testValidationErrorResponses(): void
+    public function test_validation_error_responses(): void
     {
         Http::fake([
             'https://reqres.in/*' => Http::response(['errors' => ['username' => []]], 422),
@@ -153,7 +153,7 @@ class ClientTest extends TestCase
         $response->validate();
     }
 
-    public function testUploadFile(): void
+    public function test_upload_file(): void
     {
         Http::fake([
             'https://reqres.in/*' => Http::response([], 200),

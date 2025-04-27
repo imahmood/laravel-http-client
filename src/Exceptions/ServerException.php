@@ -5,6 +5,4 @@ namespace Imahmood\HttpClient\Exceptions;
 
 use Exception;
 
-class ServerException extends Exception
-{
-}
+class ServerException extends Exception {}

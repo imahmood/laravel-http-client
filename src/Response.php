@@ -20,8 +20,7 @@ class Response implements ResponseInterface
         private readonly CookieJarInterface $cookies,
         private readonly int $statusCode,
         private readonly float $duration,
-    ) {
-    }
+    ) {}
 
     /**
      * {@inheritDoc}

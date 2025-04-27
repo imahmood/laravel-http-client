@@ -10,7 +10,7 @@ class ClientFactory
      */
     public static function create(): ClientInterface
     {
-        return new Client();
+        return new Client;
     }
 
     /**

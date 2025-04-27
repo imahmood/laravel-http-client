@@ -22,8 +22,7 @@ class Client implements ClientInterface
     public function __construct(
         protected readonly array $options = [],
         protected readonly array $headers = [],
-    ) {
-    }
+    ) {}
 
     /**
      * {@inheritDoc}

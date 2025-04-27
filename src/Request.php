@@ -16,8 +16,7 @@ class Request implements RequestInterface
         protected HttpMethod $method,
         protected string $url,
         protected array $body = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return $this
