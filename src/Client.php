@@ -55,7 +55,14 @@ class Client implements ClientInterface
         LaravelHttpResponse $response,
         float $duration,
     ): ResponseInterface {
-        return new Response($request->getUrl(), $response->body(), $response->status(), $duration);
+        return new Response(
+            $request->getUrl(),
+            $response->body(),
+            $response->headers(),
+            $response->cookies(),
+            $response->status(),
+            $duration,
+        );
     }
 
     /**

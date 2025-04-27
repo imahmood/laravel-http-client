@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Imahmood\HttpClient;
 
+use GuzzleHttp\Cookie\CookieJarInterface;
+
 interface ResponseInterface
 {
     /**
@@ -16,6 +18,16 @@ interface ResponseInterface
      * @throws \JsonException
      */
     public function toArray(): array;
+
+    /**
+     * Get the response headers.
+     */
+    public function headers(): array;
+
+    /**
+     * Get the cookies from the response.
+     */
+    public function cookies(): CookieJarInterface;
 
     /**
      * Check if the response content is JSON.
