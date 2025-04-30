@@ -10,6 +10,8 @@ class Request implements RequestInterface
 {
     protected array $files = [];
 
+    protected array $cookies = [];
+
     protected ContentType $contentType = ContentType::JSON;
 
     public function __construct(
@@ -119,5 +121,23 @@ class Request implements RequestInterface
     public function getContentType(): ContentType
     {
         return $this->contentType;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addCookie(string $name, string $value): static
+    {
+        $this->cookies[$name] = $value;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCookies(): array
+    {
+        return $this->cookies;
     }
 }

@@ -37,6 +37,10 @@ class Client implements ClientInterface
             ContentType::MULTIPART => $client->attach($request->getFiles()),
         };
 
+        if ($request->getCookies()) {
+            $client->withCookies($request->getCookies(), (string) parse_url($request->getUrl(), PHP_URL_HOST));
+        }
+
         $startTime = microtime(true);
 
         $response = $client->{$request->getMethod()->value}($request->getUrl(), $request->getBody());

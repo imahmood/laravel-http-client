@@ -39,4 +39,14 @@ interface RequestInterface
      * Get the content type of the request (e.g., JSON, FORM, etc.).
      */
     public function getContentType(): ContentType;
+
+    /**
+     * Add a cookie to the request.
+     */
+    public function addCookie(string $name, string $value): static;
+
+    /**
+     * Get all cookies for the request.
+     */
+    public function getCookies(): array;
 }
