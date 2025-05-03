@@ -17,7 +17,7 @@ class Response implements ResponseInterface
         private readonly string $url,
         private readonly string $body,
         private readonly array $headers,
-        private readonly CookieJar $cookies,
+        private readonly ?CookieJar $cookies,
         private readonly int $statusCode,
         private readonly float $duration,
     ) {}
@@ -53,7 +53,7 @@ class Response implements ResponseInterface
     /**
      * {@inheritDoc}
      */
-    public function cookies(): CookieJar
+    public function cookies(): ?CookieJar
     {
         return $this->cookies;
     }

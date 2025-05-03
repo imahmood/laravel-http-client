@@ -27,7 +27,7 @@ interface ResponseInterface
     /**
      * Get the cookies from the response.
      */
-    public function cookies(): CookieJar;
+    public function cookies(): ?CookieJar;
 
     /**
      * Check if the response content is JSON.
