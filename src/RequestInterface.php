@@ -24,11 +24,18 @@ interface RequestInterface
     public function getBody(): array;
 
     /**
-     * Add a file to the request data.
+     * Add a file from a given path to the request payload.
      *
      * @return $this
      */
     public function addFile(string $fieldName, string $path): static;
+
+    /**
+     * Add a file using its raw contents to the request payload.
+     *
+     * @return $this
+     */
+    public function addRawFile(string $fieldName, string $contents): static;
 
     /**
      * Get an array of files attached to the request.

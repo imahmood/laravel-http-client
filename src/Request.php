@@ -79,10 +79,19 @@ class Request implements RequestInterface
      */
     public function addFile(string $fieldName, string $path): static
     {
+        return $this->addRawFile($fieldName, (string) file_get_contents($path));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addRawFile(string $fieldName, string $contents): static
+    {
         $this->contentType = ContentType::MULTIPART;
+
         $this->files[] = [
-            'fieldName' => $fieldName,
-            'path' => $path,
+            $fieldName,
+            $contents,
         ];
 
         return $this;
@@ -93,16 +102,7 @@ class Request implements RequestInterface
      */
     public function getFiles(): array
     {
-        $data = [];
-
-        foreach ($this->files as $file) {
-            $data[] = [
-                $file['fieldName'],
-                file_get_contents($file['path']),
-            ];
-        }
-
-        return $data;
+        return $this->files;
     }
 
     /**
